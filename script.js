@@ -1,4 +1,3 @@
-// garante que o HTML carregou
 document.addEventListener("DOMContentLoaded", function () {
 
     let points = 0;
@@ -18,16 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const li = document.createElement("li");
         li.textContent = input.value;
 
-        // clicar = concluir + ganhar pontos
         li.addEventListener("click", function () {
 
-            li.style.textDecoration = "line-through";
+            if (!li.classList.contains("completed")) {
+                li.classList.add("completed");
 
-            points += 10;
-            pointsDisplay.textContent = points;
-
-            // impede clicar de novo
-            li.style.pointerEvents = "none";
+                points += 10;
+                pointsDisplay.textContent = points;
+            }
         });
 
         list.appendChild(li);
