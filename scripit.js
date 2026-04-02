@@ -5,6 +5,10 @@ function addTask() {
     const li = document.createElement("li");
     li.textContent = input.value;
 
+    li.onclick = function() {
+        li.style.textDecoration = "line-through";
+    };
+
     list.appendChild(li);
     input.value = "";
 }
