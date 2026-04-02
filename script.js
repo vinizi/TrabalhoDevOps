@@ -1,11 +1,12 @@
+// garante que o HTML carregou
 document.addEventListener("DOMContentLoaded", function () {
+
+    let points = 0;
 
     const input = document.getElementById("taskInput");
     const button = document.getElementById("addBtn");
     const list = document.getElementById("taskList");
     const pointsDisplay = document.getElementById("points");
-
-    let points = 0;
 
     button.addEventListener("click", function () {
 
@@ -19,12 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // clicar = concluir + ganhar pontos
         li.addEventListener("click", function () {
+
             li.style.textDecoration = "line-through";
 
             points += 10;
             pointsDisplay.textContent = points;
 
-            // impede ganhar ponto várias vezes
+            // impede clicar de novo
             li.style.pointerEvents = "none";
         });
 
