@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     let points = 0;
@@ -20,13 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         li.addEventListener("click", function () {
 
-            li.style.textDecoration = "line-through";
+            if (!li.classList.contains("completed")) {
+                li.classList.add("completed");
 
-            points += 10;
-            pointsDisplay.textContent = points;
-
-            // impede clicar de novo
-            li.style.pointerEvents = "none";
+                points += 10;
+                pointsDisplay.textContent = points;
+            }
         });
 
         list.appendChild(li);
