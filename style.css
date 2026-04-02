@@ -17,4 +17,9 @@ button {
 li {
     margin: 10px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+li:hover {
+    color: #00ffcc;
 }

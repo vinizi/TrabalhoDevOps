@@ -1,23 +1,35 @@
-const input = document.getElementById("taskInput");
-const button = document.getElementById("addBtn");
-const list = document.getElementById("taskList");
+document.addEventListener("DOMContentLoaded", function () {
 
-button.addEventListener("click", addTask);
+    const input = document.getElementById("taskInput");
+    const button = document.getElementById("addBtn");
+    const list = document.getElementById("taskList");
+    const pointsDisplay = document.getElementById("points");
 
-function addTask() {
-    if (input.value.trim() === "") {
-        alert("Digite uma tarefa!");
-        return;
-    }
+    let points = 0;
 
-    const li = document.createElement("li");
-    li.textContent = input.value;
+    button.addEventListener("click", function () {
 
-    // Marcar como concluída (Stage 2)
-    li.addEventListener("click", function () {
-        li.style.textDecoration = "line-through";
+        if (input.value.trim() === "") {
+            alert("Digite uma tarefa!");
+            return;
+        }
+
+        const li = document.createElement("li");
+        li.textContent = input.value;
+
+        // clicar = concluir + ganhar pontos
+        li.addEventListener("click", function () {
+            li.style.textDecoration = "line-through";
+
+            points += 10;
+            pointsDisplay.textContent = points;
+
+            // impede ganhar ponto várias vezes
+            li.style.pointerEvents = "none";
+        });
+
+        list.appendChild(li);
+        input.value = "";
     });
 
-    list.appendChild(li);
-    input.value = "";
-}
+});
