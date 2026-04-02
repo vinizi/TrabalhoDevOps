@@ -5,11 +5,28 @@ body {
     color: white;
 }
 
+h1 {
+    color: #00ffcc;
+}
+
 input {
     padding: 10px;
+    margin: 10px;
 }
 
 button {
     padding: 10px;
     cursor: pointer;
+    background: #00ffcc;
+    border: none;
+}
+
+li {
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+li:hover {
+    color: #00ffcc;
 }
